@@ -1,5 +1,23 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+// import ProxyForLogin from "./pages/ProxyForLogin";
+import MainPage from "./pages/MainPage";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      {/* <Routes>
+        <Route path="/reissue" element={<ProxyForLogin />} />
+      </Routes> */}
+      <Routes>
+        <Route path="/mainpage" element={<MainPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
