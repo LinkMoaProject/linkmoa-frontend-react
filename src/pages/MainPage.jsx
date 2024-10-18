@@ -16,10 +16,9 @@ const MainPage = () => {
   return (
     <MainLayout>
       <div className="left-menu">
-        <Link to="/">
-          <i className="fa-solid fa-house fa-lg"></i>
+        <Link class="left-menu__home" to="/">
+          <i className="fa-solid fa-house"></i>
         </Link>
-        {/* <span>Left Menu</span> */}
         <ImageSection
           name="fa-solid fa-magnifying-glass"
           size="fa-lg"
@@ -55,6 +54,12 @@ const MainLayout = styled.main`
     border-right: 2px solid #f0f0f0;
     padding: 10px;
   }
+
+  .left-menu__home {
+    margin: 10px;
+    font-size: 20px;
+  }
+
   .left-menu span {
     padding: 10px;
   }
