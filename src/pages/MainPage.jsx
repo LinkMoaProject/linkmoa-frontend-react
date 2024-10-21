@@ -18,7 +18,8 @@ const MainPage = () => {
     <MainLayout>
       <div className="left-menu">
         <Link className="left-menu__home" to="/">
-          <i className="fa-solid fa-house">Linkmoa</i>
+          <i className="fa-solid fa-house"></i>
+          <span className="left-menu__home-title">linkmoa</span>
         </Link>
         <ImageSection name="fa-solid fa-magnifying-glass" title="검색" />
         <ImageSection name="fa-solid fa-box-open" title="수신함" />
@@ -30,6 +31,7 @@ const MainPage = () => {
         {/* foreach */}
         <GeneralPageBox imgName="fa-solid fa-user-lock" title="개인 정보" />
         <GeneralPageBox imgName="fa-solid fa-music" title="내 음악" />
+        <GeneralPageBox imgName="" title="메모장" />
         <ParentPageBox>공유 페이지</ParentPageBox>
         {/* foreach */}
         <GeneralPageBox imgName="fa-regular fa-star" title="링크모아" />
@@ -65,6 +67,9 @@ const MainLayout = styled.main`
   .left-menu__home {
     margin: 10px;
     font-size: 20px;
+  }
+  .left-menu__home-title {
+    text-transform: uppercase;
   }
 
   .left-menu span {
