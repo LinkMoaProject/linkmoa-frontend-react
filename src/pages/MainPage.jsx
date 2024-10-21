@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ImageSection from "../components/ImageSection";
+import GeneralPageBox from "../components/GeneralPageBox";
 
 const MainPage = () => {
   // const getAccessToken = () => {
@@ -16,21 +17,27 @@ const MainPage = () => {
   return (
     <MainLayout>
       <div className="left-menu">
-        <Link class="left-menu__home" to="/">
-          <i className="fa-solid fa-house"></i>
+        <Link className="left-menu__home" to="/">
+          <i className="fa-solid fa-house">Linkmoa</i>
         </Link>
-        <ImageSection
-          name="fa-solid fa-magnifying-glass"
-          size="fa-lg"
-          title="검색"
-        />
+        <ImageSection name="fa-solid fa-magnifying-glass" title="검색" />
         <ImageSection name="fa-solid fa-box-open" title="수신함" />
         <ParentPageBox>즐겨찾기</ParentPageBox>
+        {/* foreach */}
+        <GeneralPageBox imgName="fa-regular fa-star" title="링크모아" />
+        <GeneralPageBox imgName="fa-solid fa-music" title="내 음악" />
         <ParentPageBox>개인 페이지</ParentPageBox>
+        {/* foreach */}
+        <GeneralPageBox imgName="fa-solid fa-user-lock" title="개인 정보" />
+        <GeneralPageBox imgName="fa-solid fa-music" title="내 음악" />
         <ParentPageBox>공유 페이지</ParentPageBox>
+        {/* foreach */}
+        <GeneralPageBox imgName="fa-regular fa-star" title="링크모아" />
       </div>
       <div className="main-page">
-        <span className="main-page__full-path">⭐️ 링크모아</span>
+        <span className="main-page__full-path">
+          <i className="fa-regular fa-star"></i> 링크모아
+        </span>
         <div className="main-page__content">
           <span className="main-page__title">링크모아</span>
           <div className="main-page__directory-new">
@@ -94,7 +101,7 @@ const MainLayout = styled.main`
     align-items: center;
     cursor: pointer;
     &:hover {
-      background-color: #f0f0ee;
+      background-color: var(--gray-100);
     }
     &:hover i {
       color: #c3c6d1;
@@ -102,19 +109,23 @@ const MainLayout = styled.main`
   }
 
   .main-page__directory-new i {
-    color: #f0f0ee;
+    color: var(--gray-100);
   }
 `;
 
 const ParentPageBox = styled.div`
   margin-top: 20px;
-  padding: 10px;
+  padding: 0 10px;
   border-radius: 5px;
   opacity: 0.6;
   font-size: 14px;
+  font-weight: 600;
+  height: 30px;
+  display: flex;
+  align-items: center;
   &:hover {
     cursor: pointer;
-    background-color: #f0f0ee;
+    background-color: var(--gray-100);
     opacity: 1;
   }
 `;

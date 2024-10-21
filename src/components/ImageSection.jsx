@@ -9,31 +9,32 @@ const ImageBox = styled.div`
   opacity: 0.6;
   color: #000;
   font-weight: 600;
+  padding: 0 10px;
+  height: 30px;
   i {
-    margin-right: 10px;
+    width: 20px;
+    text-align: center;
   }
   &:hover {
     cursor: pointer;
-    background-color: #f0f0ee;
+    background-color: var(--gray-100);
     opacity: 1;
   }
 `;
 
 function ImageSection({ name, size, title }) {
-  const imgName = `${name} ${size}`;
+  const imgName = `${name} ${size || ""}`;
   return (
     <ImageBox>
-      <span>
-        <i className={imgName}></i>
-        {title}
-      </span>
+      <i className={imgName}></i>
+      <span>{title}</span>
     </ImageBox>
   );
 }
 
 ImageSection.propTypes = {
   name: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  size: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
