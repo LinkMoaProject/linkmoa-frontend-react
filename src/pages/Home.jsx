@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Button from "../components/Button";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Button from '../components/Button';
 
 const onLogin = () => {
-  console.log("===== step1) Call Backend Login href =====");
+  console.log('===== step1) Call Backend Login href =====');
   // window.location.href = "/login";
 };
 
-const Home = () => {
+function Home() {
   return (
     <StyledHome>
       <header>
@@ -22,7 +22,7 @@ const Home = () => {
       </Link>
     </StyledHome>
   );
-};
+}
 
 const StyledHome = styled.div`
   display: flex;

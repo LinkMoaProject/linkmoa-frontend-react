@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
 const ImageBox = styled.div`
   border-radius: 5px;
@@ -22,11 +22,11 @@ const ImageBox = styled.div`
   }
 `;
 
-function ImageSection({ name, size, title }) {
-  const imgName = `${name} ${size || ""}`;
+function ImageSection({ name, size = '', title }) {
+  const imgName = `${name} ${size}`;
   return (
     <ImageBox>
-      <i className={imgName}></i>
+      <i className={imgName} />
       <span>{title}</span>
     </ImageBox>
   );
@@ -34,7 +34,7 @@ function ImageSection({ name, size, title }) {
 
 ImageSection.propTypes = {
   name: PropTypes.string.isRequired,
-  size: PropTypes.string,
+  size: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 

@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
-const GeneralPageBox = ({ imgName, title }) => {
+function GeneralPageBox({ imgName = 'fa-regular fa-file-lines', title = 'Untitled' }) {
   const [isHovered, setIsHovered] = React.useState(false);
-  const customImgName = imgName || "fa-regular fa-file-lines";
-  const imgNameByHover = isHovered ? "fa-solid fa-angle-right" : customImgName;
+  const customImgName = imgName || 'fa-regular fa-file-lines';
+  const imgNameByHover = isHovered ? 'fa-solid fa-angle-right' : customImgName;
   // <i className="fa-solid fa-angle-right"></i>
   const handleMouseOver = () => {
     setIsHovered((cur) => !cur);
@@ -15,22 +15,19 @@ const GeneralPageBox = ({ imgName, title }) => {
     setIsHovered((cur) => !cur);
   };
   return (
-    <GeneralPageLayout
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-    >
+    <GeneralPageLayout onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       <div className="general-page__icon">
-        <i className={imgNameByHover}></i>
+        <i className={imgNameByHover} />
       </div>
       <div className="general-page__title">
-        <span>{title || "Untitled"}</span>
+        <span>{title}</span>
         <div className="general-page__more">
-          <i className="fa-solid fa-ellipsis fa-lg"></i>
+          <i className="fa-solid fa-ellipsis fa-lg" />
         </div>
       </div>
     </GeneralPageLayout>
   );
-};
+}
 
 const GeneralPageLayout = styled.div`
   display: flex;
@@ -86,8 +83,8 @@ const GeneralPageLayout = styled.div`
 `;
 
 GeneralPageBox.propTypes = {
-  imgName: PropTypes.string,
-  title: PropTypes.string,
+  imgName: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default GeneralPageBox;

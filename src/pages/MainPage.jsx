@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import ImageSection from "../components/ImageSection";
-import GeneralPageBox from "../components/GeneralPageBox";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import ImageSection from '../components/ImageSection';
+import GeneralPageBox from '../components/GeneralPageBox';
 
-const MainPage = () => {
+function MainPage() {
   // const getAccessToken = () => {
   //   console.log("> get access token");
   // };
   useEffect(() => {
-    console.log("===== step3) Login href =====");
+    console.log('===== step3) Login href =====');
     // cookie: refreshToken
     // header: accessToken
     // getAccessToken();
@@ -18,7 +18,7 @@ const MainPage = () => {
     <MainLayout>
       <div className="left-menu">
         <Link className="left-menu__home" to="/">
-          <i className="fa-solid fa-house"></i>
+          <i className="fa-solid fa-house" />
           <span className="left-menu__home-title">linkmoa</span>
         </Link>
         <ImageSection name="fa-solid fa-magnifying-glass" title="검색" />
@@ -38,18 +38,18 @@ const MainPage = () => {
       </div>
       <div className="main-page">
         <span className="main-page__full-path">
-          <i className="fa-regular fa-star"></i> 링크모아
+          <i className="fa-regular fa-star" /> 링크모아
         </span>
         <div className="main-page__content">
           <span className="main-page__title">링크모아</span>
           <div className="main-page__directory-new">
-            <i className="fa-solid fa-plus fa-3x"></i>
+            <i className="fa-solid fa-plus fa-3x" />
           </div>
         </div>
       </div>
     </MainLayout>
   );
-};
+}
 
 const MainLayout = styled.main`
   display: flex;

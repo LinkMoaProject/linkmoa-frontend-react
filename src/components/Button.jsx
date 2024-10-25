@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 const StyledButton = styled.button`
   box-sizing: border-box;
@@ -13,11 +13,11 @@ const StyledButton = styled.button`
   margin: 20px;
   padding: 1.2em 2.8em;
   text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 
-  color: ${(props) => props.color || "white"};
-  background: ${(props) => props.background || "#3498db"};
+  color: ${(props) => props.color || 'white'};
+  background: ${(props) => props.background || '#3498db'};
 
   ${(props) =>
     props.primary &&

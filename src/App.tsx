@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 // import ProxyForLogin from "./pages/ProxyForLogin";
-import MainPage from "./pages/MainPage";
-import GlobalStyle from "./styles/GlobalStyle";
+import MainPage from './pages/MainPage';
+import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
