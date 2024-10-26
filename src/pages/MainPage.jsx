@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import NotificationBox from '../components/NotificationBox';
 import ImageSection from '../components/ImageSection';
 import GeneralPageBox from '../components/GeneralPageBox';
 
@@ -47,6 +48,9 @@ function MainPage() {
           </div>
         </div>
       </div>
+      <section>
+        <NotificationBox />
+      </section>
     </MainLayout>
   );
 }
