@@ -53,9 +53,9 @@ function NotificationBox({ onNotificationCountChange, onClick }: NotificationBox
       <Title>
         <h1>수신함</h1>
         <div>
-          <button>모두 읽음 표시</button>
-          <button>모두 삭제</button>
-          <i onClick={onClick} className="fa-solid fa-angles-left"></i>
+          <button type="button">모두 읽음 표시</button>
+          <button type="button">모두 삭제</button>
+          <i onClick={onClick} className="fa-solid fa-angles-left" />
         </div>
       </Title>
       {error && <p>{error}</p>}
