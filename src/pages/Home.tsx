@@ -16,11 +16,7 @@ const Home = () => {
         <span>Welcome to the LinkMoa!</span>
         <span>Please login to use...</span>
       </header>
-      {/* <Link to="/mainpage"> */}
-      <Button type="button" onClick={onLogin}>
-        Login
-      </Button>
-      {/* </Link> */}
+      <Button onClick={onLogin}>Login</Button>
     </StyledHome>
   );
 };

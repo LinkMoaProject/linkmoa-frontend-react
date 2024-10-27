@@ -22,7 +22,13 @@ const ImageBox = styled.div`
   }
 `;
 
-const ImageSection = ({ name, size = '', title }) => {
+type ImageSectionProps = {
+  name: string;
+  size?: string;
+  title: string;
+};
+
+const ImageSection = ({ name, size = '', title }: ImageSectionProps) => {
   const imgName = `${name} ${size}`;
   return (
     <ImageBox>
