@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Notification {
   id: number;
@@ -44,7 +44,7 @@ function NotificationBox({ onNotificationCountChange }: NotificationBoxProps) {
 
   useEffect(() => {
     onNotificationCountChange(messages.length);
-  }, [messages]);
+  }, [messages, onNotificationCountChange]);
 
   return (
     <div>
