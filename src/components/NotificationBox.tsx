@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 interface Notification {
   id: number;
@@ -7,9 +8,10 @@ interface Notification {
 
 interface NotificationBoxProps {
   onNotificationCountChange: (count: number) => void;
+  onClick: () => void;
 }
 
-function NotificationBox({ onNotificationCountChange }: NotificationBoxProps) {
+function NotificationBox({ onNotificationCountChange, onClick }: NotificationBoxProps) {
   const [messages, setMessages] = useState<Notification[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -48,11 +50,18 @@ function NotificationBox({ onNotificationCountChange }: NotificationBoxProps) {
 
   return (
     <div>
-      <h2>실시간 알림</h2>
+      <Title>
+        <h1>수신함</h1>
+        <div>
+          <button>모두 읽음 표시</button>
+          <button>모두 삭제</button>
+          <i onClick={onClick} className="fa-solid fa-angles-left"></i>
+        </div>
+      </Title>
       {error && <p>{error}</p>}
       <ul>
         {messages.map((notification) => (
-          <li key={notification.id}>수신: {notification.message}</li>
+          <List key={notification.id}>수신: {notification.message}</List>
         ))}
       </ul>
     </div>
@@ -60,3 +69,38 @@ function NotificationBox({ onNotificationCountChange }: NotificationBoxProps) {
 }
 
 export default NotificationBox;
+
+const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #f0f0f0;
+
+  & h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 20px;
+  }
+
+  & button {
+    cursor: pointer;
+    background-color: var(--gray-100);
+    border: none;
+    border-left: 2px solid #f0f0f0;
+    padding: 0px 10px;
+    height: 100%;
+
+    &:hover {
+      filter: brightness(95%);
+    }
+  }
+
+  & i {
+    padding: 0px 20px;
+    font-size: 1.4rem;
+  }
+`;
+
+const List = styled.li`
+  padding: 20px;
+  border-bottom: 2px solid #f0f0f0;
+`;

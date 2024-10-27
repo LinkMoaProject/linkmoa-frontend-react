@@ -6,7 +6,7 @@ import ImageSection from '../components/ImageSection';
 import GeneralPageBox from '../components/GeneralPageBox';
 
 interface NotificationSectionStylesProps {
-  $isOpenNotificationBox: boolean;
+  $isOpen: boolean;
 }
 
 function MainPage() {
@@ -67,8 +67,11 @@ function MainPage() {
           </div>
         </div>
       </div>
-      <NotificationSection $isOpenNotificationBox={isOpenNotificationBox}>
-        <NotificationBox onNotificationCountChange={handleNotificationCountChange} />
+      <NotificationSection $isOpen={isOpenNotificationBox}>
+        <NotificationBox
+          onNotificationCountChange={handleNotificationCountChange}
+          onClick={handleOpenNotificationBox}
+        />
       </NotificationSection>
     </MainLayout>
   );
@@ -159,13 +162,12 @@ const ParentPageBox = styled.div`
 `;
 
 const NotificationSection = styled.section<NotificationSectionStylesProps>`
-  visibility: ${(props) => (props.$isOpenNotificationBox ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
   position: fixed;
   left: 292px;
   min-width: 430px;
   height: 100vh;
   overflow-y: scroll;
-  padding: 20px;
   background-color: #ffffff;
   border-right: 2px solid #f0f0f0;
 
