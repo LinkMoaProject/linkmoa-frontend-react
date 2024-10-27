@@ -19,24 +19,20 @@ function NotificationBox({ onNotificationCountChange, onClick }: NotificationBox
     const eventSource = new EventSource('http://localhost:3000/events');
 
     eventSource.onopen = () => {
-      console.log('SSE 연결 성공');
       setError(null);
     };
 
     eventSource.onmessage = (event: MessageEvent) => {
-      console.log('받은 메세지: ', event);
       const eventData = JSON.parse(event.data);
       const newNotification: Notification = {
         id: Date.now(),
         message: eventData.message,
       };
-      console.log('newNotification: ', newNotification);
       setMessages((prevMessages) => [...prevMessages, newNotification]);
     };
 
     eventSource.onerror = (err) => {
-      console.error('SSE 에러:', err);
-      setError('실시간 알림 연결에 문제가 발생했습니다.');
+      setError(`실시간 알림 연결에 문제가 발생했습니다.\n${err}`);
 
       eventSource.close();
     };
