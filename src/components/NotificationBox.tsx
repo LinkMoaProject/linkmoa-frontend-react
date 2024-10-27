@@ -5,7 +5,11 @@ interface Notification {
   message: string;
 }
 
-function NotificationBox() {
+interface NotificationBoxProps {
+  onNotificationCountChange: (count: number) => void;
+}
+
+function NotificationBox({ onNotificationCountChange }: NotificationBoxProps) {
   const [messages, setMessages] = useState<Notification[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -37,6 +41,10 @@ function NotificationBox() {
 
     return () => eventSource.close();
   }, []);
+
+  useEffect(() => {
+    onNotificationCountChange(messages.length);
+  }, [messages]);
 
   return (
     <div>

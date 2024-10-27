@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import NotificationBox from '../components/NotificationBox';
@@ -6,6 +6,12 @@ import ImageSection from '../components/ImageSection';
 import GeneralPageBox from '../components/GeneralPageBox';
 
 function MainPage() {
+  const [notificationCount, setNotificationCount] = useState<number>(0);
+
+  const handleNotificationCountChange = (count: number) => {
+    setNotificationCount(count);
+  };
+
   // const getAccessToken = () => {
   //   console.log("> get access token");
   // };
@@ -23,7 +29,7 @@ function MainPage() {
           <span className="left-menu__home-title">linkmoa</span>
         </Link>
         <ImageSection name="fa-solid fa-magnifying-glass" title="검색" />
-        <ImageSection name="fa-solid fa-box-open" title="수신함" />
+        <ImageSection name="fa-solid fa-box-open" title={`수신함 (${notificationCount})`} />
         <ParentPageBox>즐겨찾기</ParentPageBox>
         {/* foreach */}
         <GeneralPageBox imgName="fa-regular fa-star" title="링크모아" />
@@ -49,7 +55,7 @@ function MainPage() {
         </div>
       </div>
       <section>
-        <NotificationBox />
+        <NotificationBox onNotificationCountChange={handleNotificationCountChange} />
       </section>
     </MainLayout>
   );
