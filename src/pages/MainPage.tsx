@@ -1,19 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ImageSection from '../components/ImageSection';
 import GeneralPageBox from '../components/GeneralPageBox';
 
-function MainPage() {
-  // const getAccessToken = () => {
-  //   console.log("> get access token");
-  // };
-  useEffect(() => {
-    console.log('===== step3) Login href =====');
-    // cookie: refreshToken
-    // header: accessToken
-    // getAccessToken();
-  }, []);
+const MainPage = () => {
   return (
     <MainLayout>
       <div className="left-menu">
@@ -49,7 +40,7 @@ function MainPage() {
       </div>
     </MainLayout>
   );
-}
+};
 
 const MainLayout = styled.main`
   display: flex;

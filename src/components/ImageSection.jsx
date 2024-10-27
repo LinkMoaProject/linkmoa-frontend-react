@@ -22,7 +22,7 @@ const ImageBox = styled.div`
   }
 `;
 
-function ImageSection({ name, size = '', title }) {
+const ImageSection = ({ name, size = '', title }) => {
   const imgName = `${name} ${size}`;
   return (
     <ImageBox>
@@ -30,7 +30,7 @@ function ImageSection({ name, size = '', title }) {
       <span>{title}</span>
     </ImageBox>
   );
-}
+};
 
 ImageSection.propTypes = {
   name: PropTypes.string.isRequired,

@@ -28,8 +28,8 @@ const StyledButton = styled.button`
     `}
 `;
 
-function Button({ ...props }) {
+const Button = ({ ...props }) => {
   return <StyledButton {...props}>Login</StyledButton>;
-}
+};
 
 export default Button;
