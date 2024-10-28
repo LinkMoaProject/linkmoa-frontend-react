@@ -8,7 +8,7 @@ interface ImageSectionProps {
   onClick?: () => void;
 }
 
-function ImageSection({ name, size = '', title, onClick }: ImageSectionProps) {
+const ImageSection = ({ name, size = '', title, onClick }: ImageSectionProps) => {
   const imgName = `${name} ${size}`;
   return (
     <ImageBox onClick={onClick}>
@@ -16,7 +16,7 @@ function ImageSection({ name, size = '', title, onClick }: ImageSectionProps) {
       <span>{title}</span>
     </ImageBox>
   );
-}
+};
 
 export default ImageSection;
 

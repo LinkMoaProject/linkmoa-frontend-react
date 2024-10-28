@@ -8,19 +8,23 @@ const Reissue = () => {
   useEffect(() => {
     const fetchAccessToken = async () => {
       try {
-        console.log('===== Login step1) axios call to backend =====');
-        console.log('> URL: ', process.env.LOGIN_AXIOS_URL);
+        console.log('===== Login step2) axios call to backend =====');
+        console.log('> URL: ', process.env.SOCIAL_LOGIN_AXIOS_URL);
         const response = await axios.post(
-          process.env.LOGIN_AXIOS_URL || 'http://localhost:8080/api/jwt/access-token',
+          process.env.SOCIAL_LOGIN_AXIOS_URL || 'http://localhost:8080/api/jwt/access-token',
           {},
           {
             withCredentials: true,
           },
         );
+        console.log('> response status: ', response.status);
+        console.log('> response data: ', response.data);
+        console.log('> response headers: ', response.headers);
 
         const accessToken = response.headers.authorization?.split(' ')[1];
 
         if (accessToken) {
+          console.log('> success! accessToken: ', accessToken);
           localStorage.setItem('access_token', accessToken);
 
           navigate('/mainpage');

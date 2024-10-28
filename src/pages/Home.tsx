@@ -1,12 +1,11 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../components/Button';
 
 const onLogin = () => {
   console.log('===== Login step1) href call to backend =====');
-  console.log('> URL: ', process.env.BACKEND_LOGIN_HREF_URL);
-  window.location.href = process.env.BACKEND_LOGIN_HREF_URL || 'http://localhost:8080/login';
+  console.log('> URL: ', process.env.SOCIAL_LOGIN_HREF_URL);
+  window.location.href = process.env.SOCIAL_LOGIN_HREF_URL || 'http://localhost:8080/login';
 };
 
 const Home = () => {

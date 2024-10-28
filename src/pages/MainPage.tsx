@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import NotificationBox from '../components/NotificationBox';
@@ -9,7 +9,7 @@ interface NotificationSectionStylesProps {
   $isOpen: boolean;
 }
 
-function MainPage() {
+const MainPage = () => {
   const [notificationCount, setNotificationCount] = useState<number>(0);
   const [isOpenNotificationBox, setIsOpenNotificationBox] = useState<boolean>(false);
 
@@ -21,15 +21,6 @@ function MainPage() {
     setIsOpenNotificationBox(!isOpenNotificationBox);
   };
 
-  // const getAccessToken = () => {
-  //   console.log("> get access token");
-  // };
-  useEffect(() => {
-    console.log('===== step3) Login href =====');
-    // cookie: refreshToken
-    // header: accessToken
-    // getAccessToken();
-  }, []);
   return (
     <MainLayout>
       <div className="left-menu">

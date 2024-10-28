@@ -6,7 +6,6 @@ const GeneralPageBox = ({ imgName = 'fa-regular fa-file-lines', title = 'Untitle
   const [isHovered, setIsHovered] = React.useState(false);
   const customImgName = imgName || 'fa-regular fa-file-lines';
   const imgNameByHover = isHovered ? 'fa-solid fa-angle-right' : customImgName;
-  // <i className="fa-solid fa-angle-right"></i>
   const handleMouseOver = () => {
     setIsHovered((cur) => !cur);
   };

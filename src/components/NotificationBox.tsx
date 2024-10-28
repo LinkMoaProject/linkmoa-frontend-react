@@ -11,7 +11,7 @@ interface NotificationBoxProps {
   onClick: () => void;
 }
 
-function NotificationBox({ onNotificationCountChange, onClick }: NotificationBoxProps) {
+const NotificationBox = ({ onNotificationCountChange, onClick }: NotificationBoxProps) => {
   const [messages, setMessages] = useState<Notification[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -62,7 +62,7 @@ function NotificationBox({ onNotificationCountChange, onClick }: NotificationBox
       </ul>
     </div>
   );
-}
+};
 
 export default NotificationBox;
 
