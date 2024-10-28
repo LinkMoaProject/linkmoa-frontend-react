@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import NotificationBox from '../components/NotificationBox';
 import ImageSection from '../components/ImageSection';
 import GeneralPageBox from '../components/GeneralPageBox';
 
-const MainPage = () => {
+interface NotificationSectionStylesProps {
+  $isOpen: boolean;
+}
+
+function MainPage() {
+  const [notificationCount, setNotificationCount] = useState<number>(0);
+  const [isOpenNotificationBox, setIsOpenNotificationBox] = useState<boolean>(false);
+
+  const handleNotificationCountChange = (count: number) => {
+    setNotificationCount(count);
+  };
+
+  const handleOpenNotificationBox = () => {
+    setIsOpenNotificationBox(!isOpenNotificationBox);
+  };
+
+  // const getAccessToken = () => {
+  //   console.log("> get access token");
+  // };
+  useEffect(() => {
+    console.log('===== step3) Login href =====');
+    // cookie: refreshToken
+    // header: accessToken
+    // getAccessToken();
+  }, []);
   return (
     <MainLayout>
       <div className="left-menu">
@@ -13,7 +38,11 @@ const MainPage = () => {
           <span className="left-menu__home-title">linkmoa</span>
         </Link>
         <ImageSection name="fa-solid fa-magnifying-glass" title="검색" />
-        <ImageSection name="fa-solid fa-box-open" title="수신함" />
+        <ImageSection
+          onClick={handleOpenNotificationBox}
+          name="fa-solid fa-box-open"
+          title={`수신함 (${notificationCount})`}
+        />
         <ParentPageBox>즐겨찾기</ParentPageBox>
         {/* foreach */}
         <GeneralPageBox imgName="fa-regular fa-star" title="링크모아" />
@@ -38,6 +67,12 @@ const MainPage = () => {
           </div>
         </div>
       </div>
+      <NotificationSection $isOpen={isOpenNotificationBox}>
+        <NotificationBox
+          onNotificationCountChange={handleNotificationCountChange}
+          onClick={handleOpenNotificationBox}
+        />
+      </NotificationSection>
     </MainLayout>
   );
 };
@@ -123,6 +158,21 @@ const ParentPageBox = styled.div`
     cursor: pointer;
     background-color: var(--gray-100);
     opacity: 1;
+  }
+`;
+
+const NotificationSection = styled.section<NotificationSectionStylesProps>`
+  visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
+  position: fixed;
+  left: 292px;
+  min-width: 430px;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: #ffffff;
+  border-right: 2px solid #f0f0f0;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 

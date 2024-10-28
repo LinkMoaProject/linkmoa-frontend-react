@@ -1,6 +1,24 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+
+interface ImageSectionProps {
+  name: string;
+  size?: string;
+  title: string;
+  onClick?: () => void;
+}
+
+function ImageSection({ name, size = '', title, onClick }: ImageSectionProps) {
+  const imgName = `${name} ${size}`;
+  return (
+    <ImageBox onClick={onClick}>
+      <i className={imgName} />
+      <span>{title}</span>
+    </ImageBox>
+  );
+}
+
+export default ImageSection;
 
 const ImageBox = styled.div`
   border-radius: 5px;
@@ -21,27 +39,3 @@ const ImageBox = styled.div`
     opacity: 1;
   }
 `;
-
-type ImageSectionProps = {
-  name: string;
-  size?: string;
-  title: string;
-};
-
-const ImageSection = ({ name, size = '', title }: ImageSectionProps) => {
-  const imgName = `${name} ${size}`;
-  return (
-    <ImageBox>
-      <i className={imgName} />
-      <span>{title}</span>
-    </ImageBox>
-  );
-};
-
-ImageSection.propTypes = {
-  name: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-export default ImageSection;
