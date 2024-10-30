@@ -9,6 +9,14 @@ type ButtonProps = {
   onClick: () => void;
 };
 
+const Button = ({ color = 'white', background = '#3498db', primary = false, ...props }: ButtonProps) => {
+  return (
+    <StyledButton color={color} background={background} primary={primary} {...props}>
+      Login
+    </StyledButton>
+  );
+};
+
 const StyledButton = styled.button<ButtonProps>`
   box-sizing: border-box;
   border: 2px solid;
@@ -34,15 +42,5 @@ const StyledButton = styled.button<ButtonProps>`
       border-color: navy;
     `}
 `;
-
-const Button = ({ ...props }: ButtonProps) => {
-  return <StyledButton {...props}>Login</StyledButton>;
-};
-
-Button.defaultProps = {
-  color: 'white',
-  background: '#3498db',
-  primary: false,
-};
 
 export default Button;
