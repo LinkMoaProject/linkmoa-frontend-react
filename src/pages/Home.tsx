@@ -1,28 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../components/Button';
 
 const onLogin = () => {
-  console.log('===== step1) Call Backend Login href =====');
-  // window.location.href = "/login";
+  console.log('===== Login step1) href call to backend =====');
+  console.log('> URL: ', process.env.SOCIAL_LOGIN_HREF_URL);
+  window.location.href = process.env.SOCIAL_LOGIN_HREF_URL || 'http://localhost:8080/login';
 };
 
-function Home() {
+const Home = () => {
   return (
     <StyledHome>
       <header>
         <span>Welcome to the LinkMoa!</span>
         <span>Please login to use...</span>
       </header>
-      <Link to="/mainpage">
-        <Button type="button" onClick={onLogin}>
-          Login
-        </Button>
-      </Link>
+      <Button onClick={onLogin}>Login</Button>
     </StyledHome>
   );
-}
+};
 
 const StyledHome = styled.div`
   display: flex;

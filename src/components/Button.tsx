@@ -1,7 +1,23 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const StyledButton = styled.button`
+type ButtonProps = {
+  color?: string;
+  background?: string;
+  primary?: boolean;
+  children: React.ReactNode;
+  onClick: () => void;
+};
+
+const Button = ({ color = 'white', background = '#3498db', primary = false, ...props }: ButtonProps) => {
+  return (
+    <StyledButton color={color} background={background} primary={primary} {...props}>
+      Login
+    </StyledButton>
+  );
+};
+
+const StyledButton = styled.button<ButtonProps>`
   box-sizing: border-box;
   border: 2px solid;
   border-radius: 0.6em;
@@ -15,7 +31,6 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-
   color: ${(props) => props.color || 'white'};
   background: ${(props) => props.background || '#3498db'};
 
@@ -27,9 +42,5 @@ const StyledButton = styled.button`
       border-color: navy;
     `}
 `;
-
-function Button({ ...props }) {
-  return <StyledButton {...props}>Login</StyledButton>;
-}
 
 export default Button;
