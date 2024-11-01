@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
+  ${reset}
   :root {
     --gray-100: #f7f7f5;
     --gray-200: #f0f0ee;

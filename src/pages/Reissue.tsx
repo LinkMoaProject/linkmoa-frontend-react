@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,9 +9,9 @@ const Reissue = () => {
     const fetchAccessToken = async () => {
       try {
         console.log('===== Login step2) axios call to backend =====');
-        console.log('> URL: ', process.env.SOCIAL_LOGIN_AXIOS_URL);
+        console.log('> URL: ', import.meta.env.SOCIAL_LOGIN_AXIOS_URL);
         const response = await axios.post(
-          process.env.SOCIAL_LOGIN_AXIOS_URL || 'http://localhost:8080/api/jwt/access-token',
+          import.meta.env.SOCIAL_LOGIN_AXIOS_URL || 'http://localhost:8080/api/jwt/access-token',
           {},
           {
             withCredentials: true,

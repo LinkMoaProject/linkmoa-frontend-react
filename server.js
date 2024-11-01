@@ -1,12 +1,11 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-const express = require('express');
-// eslint-disable-next-line import/no-extraneous-dependencies
-const cors = require('cors');
+// Import using ESM syntax
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3001',
+  origin: 'http://localhost:5173',
 };
 
 app.get('/events', cors(corsOptions), (req, res) => {
