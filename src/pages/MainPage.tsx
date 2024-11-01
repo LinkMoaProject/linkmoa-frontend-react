@@ -5,9 +5,9 @@ import NotificationBox from '../components/NotificationBox';
 import ImageSection from '../components/ImageSection';
 import GeneralPageBox from '../components/GeneralPageBox';
 
-interface NotificationSectionStylesProps {
+type NotificationSectionStylesProps = {
   $isOpen: boolean;
-}
+};
 
 const MainPage = () => {
   const [notificationCount, setNotificationCount] = useState<number>(0);

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-interface Notification {
+type Notification = {
   id: number;
   message: string;
-}
+};
 
-interface NotificationBoxProps {
+type NotificationBoxProps = {
   onNotificationCountChange: (count: number) => void;
   onClick: () => void;
-}
+};
 
 const NotificationBox = ({ onNotificationCountChange, onClick }: NotificationBoxProps) => {
   const [messages, setMessages] = useState<Notification[]>([]);

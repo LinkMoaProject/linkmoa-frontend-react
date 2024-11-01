@@ -1,12 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
 
-interface ImageSectionProps {
+type ImageSectionProps = {
   name: string;
   size?: string;
   title: string;
   onClick?: () => void;
-}
+};
 
 const ImageSection = ({ name, size = '', title, onClick }: ImageSectionProps) => {
   const imgName = `${name} ${size}`;
