@@ -1,50 +1,23 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# linkmoa-frontend-react
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+├─ .gitignore
+├─ package-lock.json
+├─ package.json         # npm 패키지 설정 파일
+├─ public               # 정적 파일 (HTML, 이미지, 폰트 등)
+│  ├─ index.html        # 엔트리 HTML 파일
+├─ README.md            # 프로젝트 설명 파일
+└─ src                  # 소스 코드 디렉토리
+   ├─ App.js
+   ├─ assets            # 이미지, 폰트 등 정적 자산
+   ├─ components        # 재사용 가능한 UI 컴포넌트
+   ├─ hooks             # 커스텀 훅
+   ├─ pages             # 페이지별 컴포넌트
+   ├─ services          # API 호출 및 비즈니스 로직
+   ├─ state             # 전역 상태 관리 (Recoil)
+   ├─ styles            # 스타일 파일 (CSS, styled-components)
+   ├─ utils             # 유틸리티 함수 모음
+   │  ├─ helper.ts      # 공통 유틸리티 함수
+   └─ index.js
 ```
